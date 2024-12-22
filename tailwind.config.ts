@@ -6,6 +6,10 @@ export default {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {},
+  theme: {
+    fontFamily: {
+      sans: 'var(--font-inter)',
+    },
+  },
   plugins: [],
 } satisfies Config
