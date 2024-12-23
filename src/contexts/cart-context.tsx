@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState, type ReactNode } from 'react'
+import { ReactNode, createContext, useContext, useState } from 'react'
 
 interface CartItem {
   productId: number
@@ -25,7 +25,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         return state.map(item => {
           if (item.productId === productId) {
             return {
-              productId,
+              ...item,
               quantity: item.quantity + 1
             }
           } else {
@@ -33,7 +33,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
           }
         })
       } else {
-        return state
+        return [...state, { productId, quantity: 1 }]
       }
     })
   }
